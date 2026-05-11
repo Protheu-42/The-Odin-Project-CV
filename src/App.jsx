@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GeneralInfoField from "./components/GeneralInfoField";
 import EducationalFieldInfo from "./components/EducationalFieldInfo";
+import PracticalExperience from "./components/PracticalExperience";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -13,6 +14,13 @@ function App() {
     titleOfStudy: "",
     dateOfStart: "",
     dateOfEnding: "",
+  });
+  const [experienceInfo, setExperienceInfo] = useState({
+    companyName: "",
+    positionTitle: "",
+    mainResponsibilities: "",
+    workStarted: "",
+    workEnded: "",
   });
 
   function handleGeneralChange(value, type) {
@@ -56,6 +64,39 @@ function App() {
       }));
     }
   }
+
+  function handlePracticalExperience(value, type) {
+    if (type === "companyName") {
+      setExperienceInfo((previousState) => ({
+        ...previousState,
+        companyName: value,
+      }));
+    }
+    if (type === "positionTitle") {
+      setExperienceInfo((previousState) => ({
+        ...previousState,
+        positionTitle: value,
+      }));
+    }
+    if (type === "mainResponsibilities") {
+      setExperienceInfo((previousState) => ({
+        ...previousState,
+        mainResponsibilities: value,
+      }));
+    }
+    if (type === "workStarted") {
+      setExperienceInfo((previousState) => ({
+        ...previousState,
+        workStarted: value,
+      }));
+    }
+    if (type === "workEnded") {
+      setExperienceInfo((previousState) => ({
+        ...previousState,
+        workEnded: value,
+      }));
+    }
+  }
   return (
     <div>
       <h1>Input your CV</h1>
@@ -77,6 +118,17 @@ function App() {
             dateOfStart={educationalInfo.dateOfStart}
             dateOfEnding={educationalInfo.dateOfEnding}
             onChangeHandler={handleEducationalChange}
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Practical Experience</legend>
+          <PracticalExperience
+            companyName={experienceInfo.companyName}
+            positionTitle={experienceInfo.positionTitle}
+            mainResponsibilities={experienceInfo.mainResponsibilities}
+            workStarted={experienceInfo.workStarted}
+            workEnded={experienceInfo.workEnded}
+            onChangeHandler={handlePracticalExperience}
           />
         </fieldset>
       </form>
