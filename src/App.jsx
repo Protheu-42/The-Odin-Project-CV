@@ -1,53 +1,18 @@
 import { useState } from "react";
-
-function GeneralInfoField({ type, value, onChangeHandler }) {
-  if (type === "name") {
-    return (
-      <label for={type}>
-        Name:
-        <input
-          type="text"
-          id={type}
-          value={value}
-          onChange={(e) => onChangeHandler(e.target.value, type)}
-        />
-      </label>
-    );
-  }
-  if (type === "email") {
-    return (
-      <label for={type}>
-        Email:
-        <input
-          type={type}
-          id={type}
-          value={value}
-          onChange={(e) => onChangeHandler(e.target.value, type)}
-        />
-      </label>
-    );
-  }
-  if (type === "phoneNumber") {
-    return (
-      <label for={type}>
-        Phone number:
-        <input
-          type="tel"
-          id={type}
-          value={value}
-          onChange={(e) => onChangeHandler(e.target.value, type)}
-        />
-        {value}
-      </label>
-    );
-  }
-}
+import GeneralInfoField from "./components/GeneralInfoField";
+import EducationalFieldInfo from "./components/EducationalFieldInfo";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState({
     name: "",
     email: "",
     phoneNumber: "",
+  });
+  const [educationalInfo, setEducationalInfo] = useState({
+    schoolName: "",
+    titleOfStudy: "",
+    dateOfStart: "",
+    dateOfEnding: "",
   });
 
   function handleGeneralChange(value, type) {
@@ -65,6 +30,32 @@ function App() {
     }
   }
 
+  function handleEducationalChange(value, type) {
+    if (type === "schoolName") {
+      setEducationalInfo((previousState) => ({
+        ...previousState,
+        schoolName: value,
+      }));
+    }
+    if (type === "titleOfStudy") {
+      setEducationalInfo((previousState) => ({
+        ...previousState,
+        titleOfStudy: value,
+      }));
+    }
+    if (type === "dateOfStart") {
+      setEducationalInfo((previousState) => ({
+        ...previousState,
+        dateOfStart: value,
+      }));
+    }
+    if (type === "dateOfEnding") {
+      setEducationalInfo((previousState) => ({
+        ...previousState,
+        dateOfEnding: value,
+      }));
+    }
+  }
   return (
     <div>
       <h1>Input your CV</h1>
@@ -85,6 +76,16 @@ function App() {
             type="phoneNumber"
             value={generalInfo.phoneNumber}
             onChangeHandler={handleGeneralChange}
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Educational experience</legend>
+          <EducationalFieldInfo
+            schoolName={educationalInfo.schoolName}
+            titleOfStudy={educationalInfo.titleOfStudy}
+            dateOfStart={educationalInfo.dateOfStart}
+            dateOfEnding={educationalInfo.dateOfEnding}
+            onChangeHandler={handleEducationalChange}
           />
         </fieldset>
       </form>
