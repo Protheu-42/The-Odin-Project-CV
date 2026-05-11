@@ -63,18 +63,9 @@ function App() {
         <fieldset>
           <legend>General Information</legend>
           <GeneralInfoField
-            type="name"
-            value={generalInfo.name}
-            onChangeHandler={handleGeneralChange}
-          />
-          <GeneralInfoField
-            type="email"
-            value={generalInfo.email}
-            onChangeHandler={handleGeneralChange}
-          />
-          <GeneralInfoField
-            type="phoneNumber"
-            value={generalInfo.phoneNumber}
+            name={generalInfo.name}
+            email={generalInfo.email}
+            phoneNumber={generalInfo.phoneNumber}
             onChangeHandler={handleGeneralChange}
           />
         </fieldset>
