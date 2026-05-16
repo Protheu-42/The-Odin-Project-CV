@@ -1,0 +1,13 @@
+.viewMode {
+  justify-self: center;
+}
+
+.viewMode h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.viewMode h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}

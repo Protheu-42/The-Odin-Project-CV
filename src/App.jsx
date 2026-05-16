@@ -2,6 +2,8 @@ import { useState } from "react";
 import GeneralInfoField from "./components/GeneralInfoField";
 import EducationalFieldInfo from "./components/EducationalFieldInfo";
 import PracticalExperience from "./components/PracticalExperience";
+import "./styles/form.css";
+import "./styles/view.css";
 
 function App() {
   const [visualizationMode, setVisualizationMode] = useState("form");
@@ -101,7 +103,7 @@ function App() {
   }
   if (visualizationMode === "form") {
     return (
-      <div>
+      <div className="formDiv">
         <h1>Input your CV</h1>
         <form>
           <fieldset>
@@ -142,7 +144,7 @@ function App() {
 
   if (visualizationMode === "read") {
     return (
-      <div>
+      <div className="viewMode">
         <h1>{generalInfo.name}</h1>
 
         <h2>Educational History</h2>
@@ -160,8 +162,8 @@ function App() {
           My main responsibilities were {experienceInfo.mainResponsibilities}
         </p>
         <p>
-          Work there from {experienceInfo.dateOfStart} to{" "}
-          {experienceInfo.dateOfEnding}
+          Work there from {experienceInfo.workStarted} to{" "}
+          {experienceInfo.workEnded}
         </p>
         <h3>Contact</h3>
         <ul>

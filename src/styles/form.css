@@ -1,0 +1,19 @@
+body {
+  display: grid;
+}
+
+.formDiv {
+  display: grid;
+  justify-self: center;
+}
+
+fieldset {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: grid;
+  margin-bottom: 0.5rem;
+}
